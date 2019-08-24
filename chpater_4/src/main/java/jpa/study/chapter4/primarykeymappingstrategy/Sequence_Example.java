@@ -20,7 +20,7 @@ public class Sequence_Example extends AbstractMain {
         Board2 board  = new Board2();
         board.setData("A");
 
-        //먼저 DB 시퀀스 테이블 조회를 해서 ID값을 받아오고 그후 persistence context에 엔티티를 저장한다.
+        //먼저 DB 시퀀스 조회를 해서 ID값을 받아오고 그후 persistence context에 엔티티를 저장한다.
         //Identity 전략과 달리 쓰기 지연(transactional write behind)이 가능
         em.persist(board);
 
