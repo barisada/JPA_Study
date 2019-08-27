@@ -14,6 +14,7 @@
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql" value="true"/>
             <property name="hibernate.id.new_generator_mappings" value="true"/>
+            <property name="org.hibernate.type.descriptor.sql" value="trace"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
 
             <!--언더스코어로 테이블 명이나 컬럼 명을 맵팽하는 네이밍 전략-->

@@ -1,6 +1,8 @@
 package jpa.study.chapter4.entity;
 
 import jpa.study.chapter4.RoleType;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -23,9 +25,11 @@ public class Member {
     private RoleType roleType;
 
     @Column(columnDefinition = "TIMESTAMP")
+    @CreationTimestamp
     private LocalDateTime createDate;
 
     @Column(columnDefinition = "TIMESTAMP")
+    @UpdateTimestamp
     private LocalDateTime lastModifiedDate;
 
     @Lob
@@ -85,5 +89,18 @@ public class Member {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", age=" + age +
+                ", roleType=" + roleType +
+                ", createDate=" + createDate +
+                ", lastModifiedDate=" + lastModifiedDate +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

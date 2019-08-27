@@ -29,6 +29,7 @@ public class JpaMain extends AbstractMain{
         //한 건 조회
         Member findMember = em.find(Member.class, id);
         System.out.println("findMember=" + findMember.getUsername() + ", age=" + findMember.getAge());
+        System.out.println("find member info all : " + findMember);
 
         //목록 조회
         List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
