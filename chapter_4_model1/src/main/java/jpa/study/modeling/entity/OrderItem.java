@@ -1,4 +1,4 @@
-package jpa.study.model.entity;
+package jpa.study.modeling.entity;
 
 import javax.persistence.*;
 
