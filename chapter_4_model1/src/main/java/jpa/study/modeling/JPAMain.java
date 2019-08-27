@@ -33,6 +33,7 @@ public class JPAMain {
 
             List<Item> items = em.createQuery("select i from Item i", Item.class).getResultList();
             System.out.println("items : " + items);
+
             tx.commit();//트랜잭션 커밋
 
         } catch (Exception e) {
