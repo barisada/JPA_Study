@@ -37,9 +37,19 @@ public class UniMain {
 
             //수정
             updateRelation(em);
+            //수정 후 목록조회
+            members = em.createQuery("select m from UniMember m", UniMember.class).getResultList();
+            List<UniTeam> teams = em.createQuery("select m from UniTeam m", UniTeam.class).getResultList();
+            System.out.println("after update...members : " + members);
+            System.out.println("after update...teams : " + teams);
 
             //연관관계 삭제
             deleteRelation(em);
+            //연관관게 삭제 후 목록조회
+            members = em.createQuery("select m from UniMember m", UniMember.class).getResultList();
+            teams = em.createQuery("select m from UniTeam m", UniTeam.class).getResultList();
+            System.out.println("after deleting relation...members : " + members);
+            System.out.println("after deleting relation...teams : " + teams);
 
             //엔티티 삭제
             UniMember member1 = em.find(UniMember.class, "member1");
@@ -47,6 +57,12 @@ public class UniMain {
             member1.setTeam(null);
             member2.setTeam(null);
             em.remove(team);    //팀 삭제. 기존에 있떤 연관관계를 먼저 제거해야함. 그렇지 않으면 제약조건으로 인해 DB 오류 발생.
+            //엔티티 삭제 목록조회
+            members = em.createQuery("select m from UniMember m", UniMember.class).getResultList();
+            teams = em.createQuery("select m from UniTeam m", UniTeam.class).getResultList();
+            System.out.println("after deleting Entity...members : " + members);
+            System.out.println("after deleting Entity...teams : " + teams);
+
 
             tx.commit();//트랜잭션 커밋
 
